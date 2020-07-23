@@ -140,6 +140,7 @@ if __name__ == '__main__':
     '''
     graph.bft()
 
+    print('after call')
     # graph.dft(1)
     # '''
     # Valid DFT paths:
