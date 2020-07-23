@@ -3,7 +3,7 @@ Simple graph implementation
 """
 from queue import Queue
 
-class Graph:
+class Graph():
 
     """Represent a graph as a dictionary of vertices mapping labels to edges."""
     def __init__(self):
@@ -50,7 +50,7 @@ class Graph:
                 if c not in visited:
                     visited.add(c)
                     print(c)
-                    [q.put(n) for n in self.get_neighbors(c)]           
+                    [q.put(n) for n in self.get_neighbors(c)]
 
 
     def dft(self, starting_vertex):
@@ -58,6 +58,7 @@ class Graph:
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
+        raise NotImplementedError
         pass  # TODO
 
     def dft_recursive(self, starting_vertex):
@@ -139,7 +140,7 @@ if __name__ == '__main__':
     '''
     graph.bft()
 
-
+    # graph.dft(1)
     # '''
     # Valid DFT paths:
     #     1, 2, 3, 5, 4, 6, 7
