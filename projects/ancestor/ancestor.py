@@ -1,6 +1,8 @@
 from graph import Graph
 from copy import copy
 
+
+
 class AGraph(Graph):
     def __init__(self):
         super().__init__()
@@ -15,9 +17,8 @@ class AGraph(Graph):
             if path is not None:
                 ancestors.append(path)
 
-        # print(ancestors)  # DEBUG
+        print('found these: ', ancestors)  # DEBUG
         return ancestors
-
 
 
 def _flip(x1, x2):
@@ -66,15 +67,19 @@ def earliest_ancestor(pairs, starting_node, rev=True):
     load_graph(g, ancestors)
 
     sngb = g.get_neighbors(starting_node)
-    print(f'start ngb {starting_node}: ', sngb)
-    print('vertices: ', g.vertices)
+
     if (sngb is None) or (len(sngb) == 0):
         return -1
 
     longest_paths = _find_longest(g.run_all_verts(starting_node))
     ancestor = min([p[-1] for p in longest_paths])
+    print(starting_node, longest_paths, ancestor)
 
     return ancestor
+
+
+
+
 
 if __name__ == "__main__":
     anc = [(0,2), (1, 2), (2, 3), (3, 4)]
