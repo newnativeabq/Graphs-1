@@ -13,7 +13,6 @@ class Branch():
         )
         self.explored = []
         self.unexplored = unexplored
-        print(f'Branch created with unexplored {unexplored}')
 
     def get_dir(self):
         temp = self.unexplored.pop()
@@ -25,7 +24,9 @@ class Branch():
         pass
 
 
+
 class BranchHandler():
+
     def __init__(self, room, world, branches=None):
         self.openings = detect_openings(room)
         self.start = room
@@ -35,6 +36,7 @@ class BranchHandler():
             self.create_branches()
         else:
             self.branches = branches
+
 
     def create_branches(self):
         dirs = list(self.openings.keys())
@@ -47,14 +49,33 @@ class BranchHandler():
                 )
             )
 
+
     def run_branch(self, branch):
-        trav = DFT(
-            start = branch.start,
-            direction = branch.get_dir(),
-            network = self.world,
-            visited=[]
-        )
-        branch.path.stack(trav())
+        while len(branch.unexplored) > 0:
+            trav = DFT(
+                start = branch.start,
+                direction = branch.get_dir(),
+                network = self.world,
+                visited=[]
+            )
+            
+            leg = trav()
+            branch.path.stack(leg)
+            if  not self._check_circular(branch):
+                branch.path.stack(self._back_track(leg))
+            else:
+                branch.path.add(self.start.id)
+
+
+    def _check_circular(self, branch):
+        ngbs = [self.openings[key].id for key in self.openings]
+        return branch.path[-1] in ngbs
+
+
+    def _back_track(self, leg):
+        backpath =  leg.reverse()
+        backpath.steps.pop(0)
+        return backpath
 
 
     def search_branches(self):
@@ -74,26 +95,42 @@ class BranchHandler():
 
 
 
+
+
 class Path():
     def __init__(self, start=None, exit=None, steps=None):
         self.start = start 
         self.exit = exit
-        self.steps = []
+        if steps is None:
+            self.steps = []
+        else:
+            self.steps = steps
 
     def __repr__(self):
         return f'{self.steps}'
+
+    def __len__(self):
+        return len(self.steps)
 
     def add(self, node):
         self.steps.append(node)
 
     def stack(self, path):
-        if len(self.steps) > 0:
-            if self.steps[-1] == path.steps[0]:
-                self.steps.extend(path.steps[1:])
-            else:
-                self.steps.extend(path.steps)
+        if path is None:
+            return
+        # print('stacking ', path.steps, 'to', self.steps)
+        # print('checking ', self.start.id, 'against ', path[0])
+        if self.start.id == path[0]:
+            self.steps.extend(path.steps[1:])
         else:
-            self.steps = path
+            self.steps.extend(path.steps)
+
+    def reverse(self):
+        rpath = Path(steps = self.steps[::-1]) 
+        return rpath
+
+    def __getitem__(self, idx):
+        return self.steps[idx]
 
 
 
@@ -165,13 +202,13 @@ class DFT():
         q.put(starting_vertex)
 
         visited = set()
-        path = []
+        path = Path()
 
         while not q.empty():
             c = q.get()
             if c not in visited:
                 visited.add(c)
-                path.append(c)
+                path.add(c)
                 [q.put(n.id) for n in self.get_neighbors(self.network.rooms[c]) if n is not None]
         
         return path
@@ -197,5 +234,4 @@ def detect_openings(room, last_direction=None):
     if last_direction is not None:
         del openings[last_direction]
     return openings
-
 
