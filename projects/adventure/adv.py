@@ -5,7 +5,7 @@ from world import World
 import random
 from ast import literal_eval
 
-from search import Path, BFS, DFT, Branch
+from search import Path, BFS, DFT, Branch, BranchHandler
 
 
 
@@ -15,8 +15,8 @@ world = World()
 
 # You may uncomment the smaller graphs for development and testing purposes.
 # map_file = "maps/test_line.txt"
-# map_file = "maps/test_cross.txt"
-map_file = "maps/test_loop.txt"
+map_file = "maps/test_cross.txt"
+# map_file = "maps/test_loop.txt"
 # map_file = "maps/test_loop_fork.txt"
 # map_file = "maps/main_maze.txt"
 
@@ -40,7 +40,20 @@ dft = DFT(
     visited = [],
 )
 
-print(dft.traverse())
+print(dft())
+
+
+bhandler = BranchHandler(
+    room = world.starting_room,
+    world = world,
+)
+
+bhandler.search_branches()
+print(bhandler.paths)
+
+
+
+
 
 
 
