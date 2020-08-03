@@ -46,6 +46,7 @@ bhandler.search_branches()
 
 spath = bhandler.get_shortest()
 print('Shortest branch path: ', spath, len(spath))
+print('All Paths: ', bhandler.paths)
 
 traversal_path = spath
 

@@ -72,7 +72,7 @@ class BranchHandler():
 
 
     def run_branch(self, branch, backtrack=False):
-        log.info(f'Diagnostics for {branch.id}')
+        log.debug(f'Diagnostics for {branch.id}')
         run = True
         while run:
             run = self._check_stop(branch)
@@ -86,13 +86,13 @@ class BranchHandler():
             leg = trav()
             
             branch.path.stack(leg)
-            # log.info(f'Path (td: {direction}): {branch.path}')
+            log.info(f'Path (td: {direction}): {branch.path}')
             if  (len(leg) < 3) or (not self._check_circular(branch)):
                 run = self._check_stop(branch)
                 if run:
                     branch.path.stack(self._back_track(leg))
             else:
-                log.info('Loop found at: {leg}')
+                log.debug(f'Loop found at: {leg}')
                 branch.path.add(self.start.id)
                 self._trim_loop(branch, leg)
                 run = self._check_stop(branch)
@@ -103,30 +103,32 @@ class BranchHandler():
 
     def _check_stop(self, branch):
         # Check world completion
-        log.info(f'stop check branch len: {len(branch.path.visited)}  world_len: {len(self.world.rooms)}')
+        log.debug(f'stop check branch len: {len(branch.path.visited)}  world_len: {len(self.world.rooms)}')
         if len(branch.path.visited) == len(self.world.rooms):
             return False
         # Check branch completion
         else:
-            log.info(f'Branch continue: {len(branch.unexplored) > 0}')
+            log.debug(f'Branch continue: {len(branch.unexplored) > 0}')
             return len(branch.unexplored) > 0
 
 
     def _check_circular(self, branch):
         ngbs = [self.openings[key].id for key in self.openings]
-        log.info(f'Checking circular: path_end {branch.path[-1]} ngbs {ngbs}')
+        log.debug(f'Checking circular: path_end {branch.path[-1]} ngbs {ngbs}')
         return branch.path[-1] in ngbs
 
 
     def _trim_loop(self, branch, leg):
         loop_ends = [leg[1], leg[-1]]
         loop_dirs = [key for key in self.openings if self.openings[key].id in loop_ends]
+        log.debug(f'Trimming loop_ends: {loop_ends}, loop_dirs: {loop_dirs}')
         for d in loop_dirs: branch.trim_dir(d)
 
 
     def _back_track(self, leg):
         backpath =  leg.reverse()
         backpath.steps.pop(0)
+        log.debug(f'Backtrack Requested. Path: {backpath}')
         return backpath
 
 
@@ -159,7 +161,7 @@ class BranchHandler():
 
 
 class Path():
-    def __init__(self, start=None, exit=None, steps=None, fork=False):
+    def __init__(self, start=None, exit=None, steps=None, fork=False, debug=False):
         self.start = start 
         self.exit = exit
         self.visited = set()
@@ -267,8 +269,8 @@ class DFT():
                     )
                     bh.search_branches(backtrack=True)
 
-                    # log.info('Fork Detected at ', c)
-                    # log.info('Fork path > ', bh.get_shortest())
+                    log.info(f'Fork Detected at {c}')
+                    log.info(f'Fork path > {bh.get_shortest()}')
                     fork_path = bh.get_shortest()
                     [path.add(n) for n in fork_path.steps]
 
