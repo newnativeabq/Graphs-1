@@ -33,16 +33,6 @@ player = Player(world.starting_room)
 # traversal_path = ['n', 'n']
 traversal_path = []
 
-dft = DFT(
-    start = world.starting_room,
-    direction = 'n',
-    network = world,
-    visited = [],
-)
-
-print(dft())
-
-
 bhandler = BranchHandler(
     room = world.starting_room,
     world = world,
@@ -52,7 +42,8 @@ bhandler.search_branches()
 print(bhandler.paths)
 
 
-
+spath = bhandler.get_shortest()
+print('Shortest branch path: ', spath, len(spath))
 
 
 
