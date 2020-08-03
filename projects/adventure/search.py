@@ -96,6 +96,7 @@ class BranchHandler():
             return False
         # Check branch completion
         else:
+            print('Branch continue: ', len(branch.unexplored) > 0)
             return len(branch.unexplored) > 0
 
 
