@@ -1,0 +1,922 @@
+INFO:search:Search Initialized
+DEBUG:search:Diagnostics for 0-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [7, 8, 9, 10, 11, 6, 5]
+DEBUG:search:Checking circular: path_end 5 ngbs [1, 3, 5, 7]
+DEBUG:search:Loop found at: [0, 7, 8, 9, 10, 11, 6, 5]
+DEBUG:search:Trimming loop_ends: [7, 5], loop_dirs: ['s', 'w']
+DEBUG:search:stop check branch len: 8  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 8  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [7, 8, 9, 10, 11, 6, 5, 0, 3, 4]
+DEBUG:search:Checking circular: path_end 4 ngbs [1, 3, 5, 7]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [3, 0]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 1-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 12  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:stop check branch len: 12  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:Diagnostics for 1-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [2]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [2, 15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [2, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:Diagnostics for 1-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 9  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:stop check branch len: 9  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2, 15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+INFO:search:Fork Detected at 1
+INFO:search:Fork path > [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+INFO:search:Path (td: n): [7, 8, 9, 10, 11, 6, 5, 0, 3, 4, 3, 0, 1, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:Checking circular: path_end 2 ngbs [1, 3, 5, 7]
+DEBUG:search:stop check branch len: 23  world_len: 23
+DEBUG:search:Diagnostics for 0-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 1-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 12  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:stop check branch len: 12  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:Diagnostics for 1-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [2]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [2, 15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [2, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:Diagnostics for 1-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 9  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:stop check branch len: 9  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2, 15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+INFO:search:Fork Detected at 1
+INFO:search:Fork path > [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+INFO:search:Path (td: n): [1, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:Checking circular: path_end 2 ngbs [1, 3, 5, 7]
+DEBUG:search:stop check branch len: 14  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 15, 16, 17, 16, 15, 1, 0]
+DEBUG:search:stop check branch len: 14  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [1, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 15, 16, 17, 16, 15, 1, 0, 7, 8, 9, 10, 11, 6, 5]
+DEBUG:search:Checking circular: path_end 5 ngbs [1, 3, 5, 7]
+DEBUG:search:Loop found at: [0, 7, 8, 9, 10, 11, 6, 5]
+DEBUG:search:Trimming loop_ends: [7, 5], loop_dirs: ['s', 'w']
+DEBUG:search:stop check branch len: 21  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 21  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [1, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 15, 16, 17, 16, 15, 1, 0, 7, 8, 9, 10, 11, 6, 5, 0, 3, 4]
+DEBUG:search:Checking circular: path_end 4 ngbs [1, 3, 5, 7]
+DEBUG:search:stop check branch len: 23  world_len: 23
+DEBUG:search:Diagnostics for 0-s
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [3, 4]
+DEBUG:search:Checking circular: path_end 4 ngbs [1, 3, 5, 7]
+DEBUG:search:stop check branch len: 3  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [3, 0]
+DEBUG:search:stop check branch len: 3  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 1-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 12  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:stop check branch len: 12  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:Diagnostics for 1-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [2]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [2, 15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [2, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:Diagnostics for 1-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 9  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:stop check branch len: 9  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2, 15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+INFO:search:Fork Detected at 1
+INFO:search:Fork path > [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+INFO:search:Path (td: n): [3, 4, 3, 0, 1, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:Checking circular: path_end 2 ngbs [1, 3, 5, 7]
+DEBUG:search:stop check branch len: 16  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 15, 16, 17, 16, 15, 1, 0]
+DEBUG:search:stop check branch len: 16  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [3, 4, 3, 0, 1, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 15, 16, 17, 16, 15, 1, 0, 7, 8, 9, 10, 11, 6, 5]
+DEBUG:search:Checking circular: path_end 5 ngbs [1, 3, 5, 7]
+DEBUG:search:Loop found at: [0, 7, 8, 9, 10, 11, 6, 5]
+DEBUG:search:Trimming loop_ends: [7, 5], loop_dirs: ['s', 'w']
+DEBUG:search:stop check branch len: 23  world_len: 23
+DEBUG:search:Diagnostics for 0-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: s): [5, 6, 11, 10, 9, 8, 7]
+DEBUG:search:Checking circular: path_end 7 ngbs [1, 3, 5, 7]
+DEBUG:search:Loop found at: [0, 5, 6, 11, 10, 9, 8, 7]
+DEBUG:search:Trimming loop_ends: [5, 7], loop_dirs: ['s', 'w']
+DEBUG:search:stop check branch len: 8  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 8  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [5, 6, 11, 10, 9, 8, 7, 0, 3, 4]
+DEBUG:search:Checking circular: path_end 4 ngbs [1, 3, 5, 7]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [3, 0]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 1-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 12  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:stop check branch len: 12  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:Diagnostics for 1-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [2]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [2, 15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [2, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:Diagnostics for 1-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Diagnostics for 19-n
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [18]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:stop check branch len: 2  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [18, 20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [22, 20, 19]
+DEBUG:search:Diagnostics for 19-e
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [21, 22, 20]
+DEBUG:search:Checking circular: path_end 20 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 21, 22, 20]
+DEBUG:search:Trimming loop_ends: [21, 20], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [21, 22, 20, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+DEBUG:search:Diagnostics for 19-w
+DEBUG:search:stop check branch len: 0  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: e): [20, 22, 21]
+DEBUG:search:Checking circular: path_end 21 ngbs [21, 20, 18]
+DEBUG:search:Loop found at: [19, 20, 22, 21]
+DEBUG:search:Trimming loop_ends: [20, 21], loop_dirs: ['n', 'e']
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:stop check branch len: 4  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [20, 22, 21, 19, 18]
+DEBUG:search:stop check branch len: 5  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [19]
+INFO:search:Fork Detected at 19
+INFO:search:Fork path > [21, 22, 20, 19, 18]
+INFO:search:Path (td: e): [12, 13, 14, 19, 21, 22, 20, 19, 18]
+DEBUG:search:Checking circular: path_end 18 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 9  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [19, 20, 22, 21, 19, 14, 13, 12, 1]
+DEBUG:search:stop check branch len: 9  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: n): [12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+DEBUG:search:Backtrack Requested. Path: [1]
+DEBUG:search:stop check branch len: 10  world_len: 23
+DEBUG:search:Branch continue: True
+INFO:search:Path (td: w): [12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2, 15, 16, 17]
+DEBUG:search:Checking circular: path_end 17 ngbs [2, 12, 15]
+DEBUG:search:stop check branch len: 13  world_len: 23
+DEBUG:search:Branch continue: False
+DEBUG:search:Backtrack Requested. Path: [16, 15, 1]
+INFO:search:Fork Detected at 1
+INFO:search:Fork path > [15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+INFO:search:Path (td: n): [5, 6, 11, 10, 9, 8, 7, 0, 3, 4, 3, 0, 1, 15, 16, 17, 16, 15, 1, 12, 13, 14, 19, 21, 22, 20, 19, 18, 19, 20, 22, 21, 19, 14, 13, 12, 1, 2]
+DEBUG:search:Checking circular: path_end 2 ngbs [1, 3, 5, 7]
+DEBUG:search:stop check branch len: 23  world_len: 23
