@@ -1,4 +1,11 @@
 from queue import Queue, LifoQueue
+import logging
+
+logging.basicConfig(filename='log.txt', level=0)
+
+log = logging.getLogger(__name__)
+
+log.info('Search Initialized')
 
 
 directions = ['n', 'e', 's', 'w']
@@ -65,7 +72,7 @@ class BranchHandler():
 
 
     def run_branch(self, branch, backtrack=False):
-        # print(f'Diagnostics for {branch.id}')
+        log.info(f'Diagnostics for {branch.id}')
         run = True
         while run:
             run = self._check_stop(branch)
@@ -79,12 +86,13 @@ class BranchHandler():
             leg = trav()
             
             branch.path.stack(leg)
-            # print(f'Path (td: {direction}): {branch.path}')
-            if  not self._check_circular(branch):
+            # log.info(f'Path (td: {direction}): {branch.path}')
+            if  (len(leg) < 3) or (not self._check_circular(branch)):
                 run = self._check_stop(branch)
                 if run:
                     branch.path.stack(self._back_track(leg))
             else:
+                log.info('Loop found at: {leg}')
                 branch.path.add(self.start.id)
                 self._trim_loop(branch, leg)
                 run = self._check_stop(branch)
@@ -95,17 +103,18 @@ class BranchHandler():
 
     def _check_stop(self, branch):
         # Check world completion
-        # print(f'stop check branch len: {len(branch.path.visited)}  world_len: {len(self.world.rooms)}')
+        log.info(f'stop check branch len: {len(branch.path.visited)}  world_len: {len(self.world.rooms)}')
         if len(branch.path.visited) == len(self.world.rooms):
             return False
         # Check branch completion
         else:
-            # print('Branch continue: ', len(branch.unexplored) > 0)
+            log.info(f'Branch continue: {len(branch.unexplored) > 0}')
             return len(branch.unexplored) > 0
 
 
     def _check_circular(self, branch):
         ngbs = [self.openings[key].id for key in self.openings]
+        log.info(f'Checking circular: path_end {branch.path[-1]} ngbs {ngbs}')
         return branch.path[-1] in ngbs
 
 
@@ -150,10 +159,11 @@ class BranchHandler():
 
 
 class Path():
-    def __init__(self, start=None, exit=None, steps=None):
+    def __init__(self, start=None, exit=None, steps=None, fork=False):
         self.start = start 
         self.exit = exit
         self.visited = set()
+        self.fork = fork
         if steps is None:
             self.steps = []
         else:
@@ -172,8 +182,8 @@ class Path():
     def stack(self, path):
         if path is None:
             return
-        # print('stacking ', path.steps, 'to', self.steps)
-        # print('checking ', self.start.id, 'against ', path[0])
+        # log.info('stacking ', path.steps, 'to', self.steps)
+        # log.info('checking ', self.start.id, 'against ', path[0])
         if self.start.id == path[0]:
             self.steps.extend(path.steps[1:])
         else:
@@ -257,8 +267,8 @@ class DFT():
                     )
                     bh.search_branches(backtrack=True)
 
-                    # print('Fork Detected at ', c)
-                    # print('Fork path > ', bh.get_shortest())
+                    # log.info('Fork Detected at ', c)
+                    # log.info('Fork path > ', bh.get_shortest())
                     fork_path = bh.get_shortest()
                     [path.add(n) for n in fork_path.steps]
 

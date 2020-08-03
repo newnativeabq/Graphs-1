@@ -7,6 +7,10 @@ from ast import literal_eval
 
 from search import Path, BFS, DFT, Branch, BranchHandler
 
+import sys 
+
+# sys.setrecursionlimit(3000)
+
 
 
 # Load world
@@ -26,6 +30,7 @@ world.load_graph(room_graph)
 
 # Print an ASCII map
 world.print_rooms()
+
 
 player = Player(world.starting_room)
 
