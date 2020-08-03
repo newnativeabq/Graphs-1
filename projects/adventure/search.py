@@ -66,8 +66,9 @@ class BranchHandler():
 
     def run_branch(self, branch):
         print(f'Diagnostics for {branch.id}')
-        run = self._check_stop(branch)
-        while run: #len(branch.unexplored) > 0:
+        run = True
+        while run:
+            run = self._check_stop(branch)
             direction = branch.get_dir()
             trav = DFT(
                 start = branch.start,
@@ -86,6 +87,7 @@ class BranchHandler():
             else:
                 branch.path.add(self.start.id)
                 self._trim_loop(branch, leg)
+                run = self._check_stop(branch)
             
 
 
@@ -96,7 +98,7 @@ class BranchHandler():
             return False
         # Check branch completion
         else:
-            print('Branch continue: ', len(branch.unexplored) > 0)
+            # print('Branch continue: ', len(branch.unexplored) > 0)
             return len(branch.unexplored) > 0
 
 
