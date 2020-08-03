@@ -40,18 +40,18 @@ class Branch():
 
 class BranchHandler():
 
-    def __init__(self, room, world, branches=None):
-        self.openings = detect_openings(room)
+    def __init__(self, room, world, branches=None, ignore=None, last_direction=None):
+        self.openings = detect_openings(room, last_direction)
         self.start = room
         self.world = world
         if branches is None:
             self.branches = []
-            self.create_branches()
+            self.create_branches(ignore)
         else:
             self.branches = branches
 
 
-    def create_branches(self):
+    def create_branches(self, ignore=None):
         dirs = list(self.openings.keys())
         for i in range(len(self.openings)):
             exploration_order = dirs[i:] + dirs[:i]
@@ -64,8 +64,8 @@ class BranchHandler():
             )
 
 
-    def run_branch(self, branch):
-        print(f'Diagnostics for {branch.id}')
+    def run_branch(self, branch, backtrack=False):
+        # print(f'Diagnostics for {branch.id}')
         run = True
         while run:
             run = self._check_stop(branch)
@@ -79,7 +79,7 @@ class BranchHandler():
             leg = trav()
             
             branch.path.stack(leg)
-            print(f'Path (td: {direction}): {branch.path}')
+            # print(f'Path (td: {direction}): {branch.path}')
             if  not self._check_circular(branch):
                 run = self._check_stop(branch)
                 if run:
@@ -88,6 +88,8 @@ class BranchHandler():
                 branch.path.add(self.start.id)
                 self._trim_loop(branch, leg)
                 run = self._check_stop(branch)
+        if backtrack:
+            branch.path.stack(self._back_track(leg))
             
 
 
@@ -119,9 +121,9 @@ class BranchHandler():
         return backpath
 
 
-    def search_branches(self):
+    def search_branches(self, backtrack=False):
         for branch in self.branches:
-            self.run_branch(branch)
+            self.run_branch(branch, backtrack)
 
 
     def get_shortest(self):
@@ -248,11 +250,18 @@ class DFT():
                 path.add(c)
                 croom = get_room_from_id(c, self.network)
                 if detect_fork(room=croom, last_direction=_flip_dir(self.direction), ignore=self.start):
-                    # bh = BranchHandler(
-                    #     room = croom,
-                    # )
-                    
-                    print('Fork Detected at ', c)
+                    bh = BranchHandler(
+                        room = croom,
+                        world = self.network,
+                        last_direction = _flip_dir(self.direction),
+                    )
+                    bh.search_branches(backtrack=True)
+
+                    # print('Fork Detected at ', c)
+                    # print('Fork path > ', bh.get_shortest())
+                    fork_path = bh.get_shortest()
+                    [path.add(n) for n in fork_path.steps]
+
                 else:
                     [q.put(n.id) for n in self.get_neighbors(self.network.rooms[c]) if n is not None]
         
