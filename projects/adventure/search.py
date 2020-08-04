@@ -4,7 +4,7 @@ import logging
 
 
 
-logging.basicConfig(filename='log.txt', level=logging.DEBUG)
+logging.basicConfig(filename='log.txt', level=logging.INFO)
 
 log = logging.getLogger(__name__)
 
@@ -63,7 +63,9 @@ class Branch():
             for fork in forks:
                 h = fork[1]
                 h.search_branches(backtrack=True)
+                ## CONTROL FORK BEHAVOR WITH h.get* ##
                 paths.append((fork[0], h.get_random(resolve=False).path))
+                # paths.append((fork[0], h.get_shortest(resolve=False).path))
             return paths
         
 
@@ -89,6 +91,8 @@ class Branch():
                 self.path.insert(path=fpath, idx=i)
         
         forks = _get_fork_loc(self.path)
+        if len(forks) < 1:
+            return
         if first:
             forks = [forks[0]]
         if len(forks) > 0:

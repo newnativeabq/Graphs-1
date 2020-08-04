@@ -20,14 +20,12 @@ world = World()
 # map_file = "maps/test_line.txt"
 # map_file = "maps/test_cross.txt"
 # map_file = "maps/test_loop.txt"
-map_file = "maps/test_loop_fork.txt"
-# map_file = "maps/main_maze.txt"
+# map_file = "maps/test_loop_fork.txt"
+map_file = "maps/main_maze.txt"
 
 # Loads the map into a dictionary
 room_graph=literal_eval(open(map_file, "r").read())
 world.load_graph(room_graph)
-
-print(world.rooms)
 
 # Print an ASCII map
 world.print_rooms()
@@ -68,10 +66,11 @@ def iterate_traverse(branch_handler):
 
     return False
 
-
+print('\n ALL BRANCHES \n')
+[print(branch) for branch in bhandler.branches]
 
 run = True
-for i in range(100):
+for i in range(10):
     try:
         result = iterate_traverse(bhandler)
         if result:
@@ -85,9 +84,11 @@ for i in range(100):
         print(f'Error {e}')
         break
 
-tb = trim_path(sbranch)
-print('\nCurrent shortest branch:\n ', tb, len(tb))
+
+
 print('\nCurrent shortest untrimmedbranch: \n', sbranch, len(sbranch))
+tb = trim_path(sbranch)
+print('\nCurrent shortest trimmed branch:\n ', tb, len(tb))
 
 print('\nDecisionPoints\n', decision_points)
 
