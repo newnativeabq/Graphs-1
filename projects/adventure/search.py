@@ -4,7 +4,7 @@ import logging
 
 
 
-logging.basicConfig(filename='log.txt', level=logging.INFO)
+logging.basicConfig(filename='log.txt', level=logging.DEBUG)
 
 log = logging.getLogger(__name__)
 
@@ -77,6 +77,7 @@ class Branch():
                 else:
                     return BFS(start=start, destination=destination, network=network)
 
+
         def _insert_paths(paths, network):
             for p in paths:
                 i = p[0]
@@ -147,14 +148,14 @@ class BranchHandler():
             if  (len(leg) < 3) or (not self._check_circular(branch)):
                 run = self._check_stop(branch)
                 if run:
-                    branch.path.stack(self._back_track(leg))
+                    self._back_track(leg=leg, branch=branch)
             else:
                 log.debug(f'Loop found at: {leg}')
                 branch.path.add(self.start.id)
                 self._trim_loop(branch, leg)
                 run = self._check_stop(branch)
         if backtrack:
-            branch.path.stack(self._back_track(leg))
+            self._back_track(leg=leg, branch=branch)
             log.debug(f'Backtracked path: {branch.path}')
 
 
@@ -165,7 +166,7 @@ class BranchHandler():
             return False
         # Check branch completion
         else:
-            log.debug(f'Branch continue: {len(branch.unexplored) > 0}')
+            log.debug(f'Unexplored openings: {len(branch.unexplored) > 0}')
             return len(branch.unexplored) > 0
 
 
@@ -182,10 +183,14 @@ class BranchHandler():
         for d in loop_dirs: branch.trim_dir(d)
 
 
-    def _back_track(self, leg):
+    def _back_track(self, leg, branch):
         backpath =  leg.reverse()
         backpath.steps.pop(0)
         log.debug(f'Backtrack Requested. Path: {backpath}')
+        if len(backpath) == 1:
+            branch.path.add(backpath.steps[0])
+        else:
+            branch.path.stack(backpath)
         return backpath
 
 
@@ -255,7 +260,8 @@ class Path():
 
     def add(self, room_id):
         self.steps.append(room_id)
-        self.visited.add(room_id)
+        if type(room_id) == int:
+            self.visited.add(room_id)
 
     def stack(self, path):
         if path is None:
@@ -408,7 +414,7 @@ def detect_openings(room, last_direction=None):
             openings[direction] = s
 
     if last_direction is not None:
-        del openings[last_direction]
+        openings.pop(last_direction)
     return openings
 
 
