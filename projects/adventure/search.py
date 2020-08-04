@@ -1,7 +1,10 @@
 from queue import Queue, LifoQueue
+import random
 import logging
 
-logging.basicConfig(filename='log.txt', level=0)
+
+
+logging.basicConfig(filename='log.txt', level=logging.INFO)
 
 log = logging.getLogger(__name__)
 
@@ -9,6 +12,8 @@ log.info('Search Initialized')
 
 
 directions = ['n', 'e', 's', 'w']
+
+decision_points = {}
 
 
 
@@ -22,6 +27,11 @@ class Branch():
         self.explored = []
         self.unexplored = unexplored
 
+    def __repr__(self):
+        return f'Branch ID: {self.id} - Path: {self.path}'
+    
+    def __len__(self):
+        return len(self.path)
 
     def get_dir(self):
         temp = self.unexplored.pop()
@@ -40,8 +50,55 @@ class Branch():
             self.explored.append(self.unexplored.pop(idx))
 
 
-    def __call__(self):
-        pass
+    def resolve_forks(self, first=True, network=None):
+        def _get_fork_loc(path):
+            forks = []
+            for i, v in enumerate(path):
+                if type(v) not in (int, str):
+                    forks.append((i, v))
+            return forks
+
+        def _run_forks(forks):
+            paths = []
+            for fork in forks:
+                h = fork[1]
+                h.search_branches(backtrack=True)
+                paths.append((fork[0], h.get_random(resolve=False).path))
+            return paths
+        
+
+        def _build_connection(start, destination, network):
+            if start != destination:
+                openings = detect_openings(get_room_from_id(start, network))
+                ids = [openings[d].id for d in openings]
+                log.debug(f'Checking for connection: {ids}')
+                if destination in ids:
+                    return start
+                else:
+                    return BFS(start=start, destination=destination, network=network)
+
+        def _insert_paths(paths, network):
+            for p in paths:
+                i = p[0]
+                fpath = p[1]
+                lft = self.path[0:i]
+                con = _build_connection(start=fpath[-1], destination=lft[-1], network=network)
+                if con is not None:
+                    fpath.add(con)
+                self.path.insert(path=fpath, idx=i)
+        
+        forks = _get_fork_loc(self.path)
+        if first:
+            forks = [forks[0]]
+        if len(forks) > 0:
+            paths = _run_forks(forks)
+            log.debug(f'Paths to Insert: {forks}')
+            _insert_paths(paths, network)
+
+
+
+
+
 
 
 
@@ -86,7 +143,7 @@ class BranchHandler():
             leg = trav()
             
             branch.path.stack(leg)
-            log.info(f'Path (td: {direction}): {branch.path}')
+            log.debug(f'Path (td: {direction}): {branch.path}')
             if  (len(leg) < 3) or (not self._check_circular(branch)):
                 run = self._check_stop(branch)
                 if run:
@@ -98,7 +155,7 @@ class BranchHandler():
                 run = self._check_stop(branch)
         if backtrack:
             branch.path.stack(self._back_track(leg))
-            
+            log.debug(f'Backtracked path: {branch.path}')
 
 
     def _check_stop(self, branch):
@@ -137,21 +194,41 @@ class BranchHandler():
             self.run_branch(branch, backtrack)
 
 
-    def get_shortest(self):
+    def _resolve_one_level(self):
+        for b in self.branches:
+            b.resolve_forks(first=True, network=self.world)
+
+    def get_shortest(self, resolve=True, trim=False):      
         spath = None
         slen = None
 
+        if resolve:
+            self._resolve_one_level()
+
         for b in self.branches:
             if spath is None:
+                sbranch = b
                 spath = b.path 
                 slen = len(b.path)
             elif len(b.path) < slen:
+                sbranch = b
                 spath = b.path 
                 slen = len(b.path)
 
-        return spath
+        
+        
+        if trim:
+            update_decisions(trim_path(sbranch))
+            return store_return_decision(sbranch)
+        return store_return_decision(sbranch)
+        
 
 
+    def get_random(self, resolve=True):
+        # print([branch.id for branch in self.branches])
+        if resolve:
+            self._resolve_one_level()
+        return store_return_decision(random.choice(self.branches))
 
 
     @property 
@@ -161,9 +238,8 @@ class BranchHandler():
 
 
 class Path():
-    def __init__(self, start=None, exit=None, steps=None, fork=False, debug=False):
+    def __init__(self, start=None, steps=None, fork=False, debug=False):
         self.start = start 
-        self.exit = exit
         self.visited = set()
         self.fork = fork
         if steps is None:
@@ -184,8 +260,8 @@ class Path():
     def stack(self, path):
         if path is None:
             return
-        # log.info('stacking ', path.steps, 'to', self.steps)
-        # log.info('checking ', self.start.id, 'against ', path[0])
+        log.debug(f'stacking {path.steps} to {self.steps}')
+        log.debug(f'checking {self.start.id} against {path[0]}')
         if self.start.id == path[0]:
             self.steps.extend(path.steps[1:])
         else:
@@ -196,17 +272,42 @@ class Path():
         rpath = Path(steps = self.steps[::-1]) 
         return rpath
 
+    def insert(self, path, idx):
+        lft = self.steps[0:idx]
+        rgt = self.steps[idx+1:]
+
+        npath = lft + path.steps + rgt
+
+        log.debug(f'Inserting at {idx} of len {len(path)}: {path}')
+        log.debug(f'path before insert: {self.steps}')
+        
+        self.steps = npath
+        log.debug(f'path after insert: {self.steps}')
+
+    def copy(self):
+        return Path(
+            steps=self.steps.copy()
+        )
+
+    def pop(self, idx=None):
+        if idx is not None:
+            self.steps.pop(idx)
+        else:
+            self.steps.pop()
+
     def __getitem__(self, idx):
         return self.steps[idx]
 
 
 
 class BFS():
-    def __init__(self, start, direction:str, visited, network):
+    def __init__(self, start, destination, network):
         self.start = start
-        self.direction = direction
+        self.destination = destination
         self.network = network
-        self.visited = visited
+
+    def __repr__(self):
+        return f'<search.BFS: {self.start}->{self.destination}>'
 
     def run(self):
         pass
@@ -267,12 +368,18 @@ class DFT():
                         world = self.network,
                         last_direction = _flip_dir(self.direction),
                     )
-                    bh.search_branches(backtrack=True)
+                    # Annotate forked path for lazy eval
+                    log.debug(f'Creating forked path at room {bh.start.id}')
+                    path.fork = True
+                    path.add(bh)
+                    log.debug(f'Forke found along: {path}')
 
-                    log.info(f'Fork Detected at {c}')
-                    log.info(f'Fork path > {bh.get_shortest()}')
-                    fork_path = bh.get_shortest()
-                    [path.add(n) for n in fork_path.steps]
+                    # Solve fork inline
+                    # bh.search_branches(backtrack=True)
+                    # log.info(f'Fork Detected at {c}')
+                    # log.info(f'Fork path > {bh.get_shortest()}')
+                    # fork_path = bh.get_shortest()
+                    # [path.add(n) for n in fork_path.steps]
 
                 else:
                     [q.put(n.id) for n in self.get_neighbors(self.network.rooms[c]) if n is not None]
@@ -342,3 +449,25 @@ def _flip_dir(direction):
         'w': 'e',
     }
     return opposites[direction]
+
+
+def store_return_decision(branch):
+    decision_points[branch.start.id] = {
+        'selected': branch.id, 
+        'outcome': len(branch)}
+    return branch
+
+def update_decisions(branch):
+    for key in decision_points:
+        decision_points[key]['outcome'] = len(branch)
+
+
+def trim_path(branch):
+    test_path = [s for s in branch.path.steps.copy() if type(s)==int]
+    visited = set(test_path.copy())
+
+    while len(visited.difference(set(test_path))) == 0:
+        last_rec = test_path.pop()
+    test_path.append(last_rec)
+    branch.path.steps = test_path
+    return branch

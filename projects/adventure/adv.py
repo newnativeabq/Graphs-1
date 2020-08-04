@@ -5,7 +5,7 @@ from world import World
 import random
 from ast import literal_eval
 
-from search import Path, BFS, DFT, Branch, BranchHandler
+from search import Path, BFS, DFT, Branch, BranchHandler, decision_points, trim_path
 
 import sys 
 
@@ -21,8 +21,8 @@ world = World()
 # map_file = "maps/test_line.txt"
 # map_file = "maps/test_cross.txt"
 # map_file = "maps/test_loop.txt"
-map_file = "maps/test_loop_fork.txt"
-# map_file = "maps/main_maze.txt"
+# map_file = "maps/test_loop_fork.txt"
+map_file = "maps/main_maze.txt"
 
 # Loads the map into a dictionary
 room_graph=literal_eval(open(map_file, "r").read())
@@ -44,12 +44,54 @@ bhandler = BranchHandler(
 )
 bhandler.search_branches()
 
-spath = bhandler.get_shortest()
-print('Shortest branch path: ', spath, len(spath))
-print('All Paths: ', bhandler.paths)
 
-traversal_path = spath
+sbranch = bhandler.get_shortest(resolve=True, trim=False)
+print('Shortest branch: ', sbranch, len(sbranch))
 
+
+def iterate_traverse(branch_handler):
+    # print('running iteration')
+    def _needs_resolution(branch):
+        # print('Checking resolution: ', branch)
+        return len([s for s in branch.path.steps.copy() if type(s)!=int]) > 0
+
+    def _is_complete(branch):
+        # print('Checking complete: ', branch)
+        valid_path = [s for s in branch.path.steps.copy() if type(s)==int]
+        return len(valid_path) >= len(world)
+
+    if _needs_resolution(sbranch):
+        bhandler.get_shortest(resolve=True, trim=False)
+    elif _is_complete(sbranch):
+        return bhandler.get_shortest(resolve=False, trim=True)
+
+    return False
+
+
+
+run = True
+for i in range(100):
+    try:
+        result = iterate_traverse(bhandler)
+        if result:
+            print('FOUND! Shortest branch: ', sbranch, len(sbranch))
+            run = False
+            break
+        else:
+            pass
+            # print('iteration ', i)
+    except Exception as e:
+        print(f'Error {e}')
+        break
+
+tb = trim_path(sbranch)
+print('\nCurrent shortest branch:\n ', tb, len(tb))
+print('\nCurrent shortest untrimmedbranch: \n', sbranch, len(sbranch))
+
+print('\nDecisionPoints\n', decision_points)
+
+
+# print('All Paths: ', bhandler.paths)
 
 # # TRAVERSAL TEST
 # visited_rooms = set()
